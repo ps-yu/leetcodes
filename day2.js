@@ -5,5 +5,14 @@
 // The function composition of an empty list of functions is the identity function f(x) = x.
 
 // You may assume each function in the array accepts one integer as input and returns one integer as output.
-
-let arr = []
+/**
+ * @param {Function[]} functions
+ * @return {Function}
+ */
+var compose = function(functions) {
+	return function(x) {
+           let final=x;
+           functions.reverse();
+           return functions.reduce((final,fn,index)=>final=fn(final),x);
+    }
+};
